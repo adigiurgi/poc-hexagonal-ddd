@@ -1,4 +1,4 @@
-package io.undefvar.demohexagonalarchitecture.application.domain.core.models;
+package io.undefvar.demohexagonalarchitecture.application.domain.models;
 
 import java.time.LocalDate;
 import java.util.Set;

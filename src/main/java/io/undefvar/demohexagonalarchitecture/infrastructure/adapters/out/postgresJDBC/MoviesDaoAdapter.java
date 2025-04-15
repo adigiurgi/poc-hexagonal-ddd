@@ -1,13 +1,12 @@
 package io.undefvar.demohexagonalarchitecture.infrastructure.adapters.out.postgresJDBC;
 
-import io.undefvar.demohexagonalarchitecture.application.domain.core.models.MovieRating;
+import io.undefvar.demohexagonalarchitecture.application.domain.models.MovieRating;
 import io.undefvar.demohexagonalarchitecture.infrastructure.adapters.out.postgresJDBC.entities.MovieEntity;
-import io.undefvar.demohexagonalarchitecture.infrastructure.adapters.out.postgresJDBC.entities.MovieRatingEntity;
 import io.undefvar.demohexagonalarchitecture.infrastructure.adapters.out.postgresJDBC.repositories.MovieRatingsRepository;
 import io.undefvar.demohexagonalarchitecture.infrastructure.adapters.out.postgresJDBC.repositories.MoviesRepository;
-import io.undefvar.demohexagonalarchitecture.application.domain.ports.spi.MovieDao;
+import io.undefvar.demohexagonalarchitecture.application.domain.dao.MovieDao;
 import io.undefvar.demohexagonalarchitecture.infrastructure.adapters.in.web.dtos.command.NewMovieDto;
-import io.undefvar.demohexagonalarchitecture.application.domain.core.models.Movie;
+import io.undefvar.demohexagonalarchitecture.application.domain.models.Movie;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

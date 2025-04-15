@@ -2,7 +2,7 @@ package io.undefvar.demohexagonalarchitecture.infrastructure.adapters.in.web;
 
 import io.undefvar.demohexagonalarchitecture.infrastructure.adapters.in.web.dtos.command.NewMovieDto;
 import io.undefvar.demohexagonalarchitecture.application.usecases.MovieUseCase;
-import io.undefvar.demohexagonalarchitecture.application.domain.core.models.Movie;
+import io.undefvar.demohexagonalarchitecture.application.domain.models.Movie;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,7 +30,7 @@ public class MoviesController {
     }
 
     @PutMapping
-    public ResponseEntity<?> saveMovie(@RequestBody Movie movie) {
+    public ResponseEntity<?> updateMovie(@RequestBody Movie movie) {
         return ResponseEntity.status(HttpStatus.CREATED).body(movieUseCase.updateMovie(movie));
     }
 

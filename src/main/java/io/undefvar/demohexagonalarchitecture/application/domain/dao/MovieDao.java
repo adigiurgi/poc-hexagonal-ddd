@@ -1,7 +1,7 @@
-package io.undefvar.demohexagonalarchitecture.application.domain.ports.spi;
+package io.undefvar.demohexagonalarchitecture.application.domain.dao;
 
 import io.undefvar.demohexagonalarchitecture.infrastructure.adapters.in.web.dtos.command.NewMovieDto;
-import io.undefvar.demohexagonalarchitecture.application.domain.core.models.Movie;
+import io.undefvar.demohexagonalarchitecture.application.domain.models.Movie;
 
 import java.util.List;
 import java.util.Optional;
