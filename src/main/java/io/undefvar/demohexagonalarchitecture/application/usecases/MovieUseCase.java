@@ -27,23 +27,29 @@ public class MovieUseCase {
     private final MovieDao movieDAO;
 
     public String saveMovie(NewMovieDto newMovieDto) throws MovieAlreadyExistsException {
-
+        //convert DTO to domain model to enforce entity integrity checks
+        var movie = new Movie(
+                null,
+                newMovieDto.title(),
+                newMovieDto.description(),
+                newMovieDto.releaseDate(),
+                newMovieDto.directorName(),
+                Set.of()
+        );
         //check if movie is already in DB
         var isPresent = movieDAO.findMovieByTitle(newMovieDto.title()).isPresent();
         if (isPresent) {
             throw new MovieAlreadyExistsException("Movies already exist");
         }
 
-        //instantiam un obiect de tip Movie (domeniu) pentru a forta constrangerile de business
-        Movie movie = new Movie(null, newMovieDto.title(),
-                newMovieDto.description(), newMovieDto.releaseDate(),
-                newMovieDto.directorName(), Set.of());
-
         //check aggregate integrity
         MovieIntegrityValidationService.validateIntegrity(movie);
 
         //check if other business logic is valid
-        OtherBussinesLogicUsefullAcrossUseCases.someBussinesLogic(movie);
+        if(OtherBussinesLogicUsefullAcrossUseCases.someOtherBussinesLogicChecks(movie)) {
+            log.info("Some other business logic checks checked out");
+            OtherBussinesLogicUsefullAcrossUseCases.someOtherBussinesLogic(movie);
+        }
 
         // continue to save movie
         movieDAO.saveMovie(newMovieDto);
