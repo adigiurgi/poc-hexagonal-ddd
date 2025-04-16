@@ -1,14 +1,15 @@
-package io.undefvar.demohexagonalarchitecture.infrastructure.adapters.out.postgresJDBC;
+package io.undefvar.demohexagonalarchitecture.infrastructure.adapters.out.database.postgres.jdbc;
 
 import io.undefvar.demohexagonalarchitecture.application.domain.models.MovieRating;
-import io.undefvar.demohexagonalarchitecture.infrastructure.adapters.out.postgresJDBC.entities.MovieEntity;
-import io.undefvar.demohexagonalarchitecture.infrastructure.adapters.out.postgresJDBC.repositories.MovieRatingsRepository;
-import io.undefvar.demohexagonalarchitecture.infrastructure.adapters.out.postgresJDBC.repositories.MoviesRepository;
-import io.undefvar.demohexagonalarchitecture.application.domain.dao.MovieDao;
+import io.undefvar.demohexagonalarchitecture.infrastructure.adapters.out.database.postgres.jdbc.entities.MovieEntity;
+import io.undefvar.demohexagonalarchitecture.infrastructure.adapters.out.database.postgres.jdbc.repositories.MovieRatingsRepository;
+import io.undefvar.demohexagonalarchitecture.infrastructure.adapters.out.database.postgres.jdbc.repositories.MoviesRepository;
+import io.undefvar.demohexagonalarchitecture.application.domain.ports.dao.MovieDaoPort;
 import io.undefvar.demohexagonalarchitecture.infrastructure.adapters.in.web.dtos.command.NewMovieDto;
 import io.undefvar.demohexagonalarchitecture.application.domain.models.Movie;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
@@ -16,8 +17,8 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
-@Component
-public class MoviesDaoAdapter implements MovieDao {
+@Service("implementation_v1")
+public class MoviesDaoAdapter implements MovieDaoPort {
     private final MoviesRepository moviesRepository;
     private final MovieRatingsRepository movieRatingsRepository;
     @Override

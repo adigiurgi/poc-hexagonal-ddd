@@ -1,10 +1,11 @@
 package io.undefvar.demohexagonalarchitecture.application.domain.service;
 
 import io.undefvar.demohexagonalarchitecture.application.domain.models.Movie;
+import io.undefvar.demohexagonalarchitecture.application.domain.service.api.MovieIntegrityValidationApi;
 
-public class MovieIntegrityValidationService {
+public class MovieIntegrityValidationService implements MovieIntegrityValidationApi {
 
-    public static void validateIntegrity(Movie movie){
+    public void validateIntegrity(Movie movie){
         // Some aggregate integrity validation logic
     }
 }

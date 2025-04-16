@@ -1,4 +1,4 @@
-package io.undefvar.demohexagonalarchitecture.infrastructure.adapters.out.postgresJDBC.entities;
+package io.undefvar.demohexagonalarchitecture.infrastructure.adapters.out.database.postgres.jdbc.entities;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Version;
